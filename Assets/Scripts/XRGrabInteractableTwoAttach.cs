@@ -17,21 +17,33 @@ namespace MyVRSamlple
 
         #endregion
 
-        protected override void OnSelectEntered(SelectEnterEventArgs args)
+        protected override void OnSelectEntering(SelectEnterEventArgs args)
         {
             // 두개의 attach Point를 잡는 손에 따라 구분해서 적용
-            if(args.interactorObject.transform.CompareTag("LeftHand"))
+            if (args.interactorObject.transform.CompareTag("LeftHand"))
             {
                 attachTransform = leftAttachTransform;
             }
             else if (args.interactorObject.transform.CompareTag("RightHand"))
             {
-                attachTransform =rightAttachTransform;
+                attachTransform = rightAttachTransform;
             }
-
-
-                base.OnSelectEntered(args);
-
+            base.OnSelectEntering(args);
         }
+
+        /* protected override void OnSelectEntered(SelectEnterEventArgs args)
+         {
+             // 두개의 attach Point를 잡는 손에 따라 구분해서 적용
+             if (args.interactorObject.transform.CompareTag("LeftHand"))
+             {
+                 attachTransform = leftAttachTransform;
+             }
+             else if (args.interactorObject.transform.CompareTag("RightHand"))
+             {
+                 attachTransform = rightAttachTransform;
+             }
+             base.OnSelectEntered(args);
+         }*/
+
     }
 }
