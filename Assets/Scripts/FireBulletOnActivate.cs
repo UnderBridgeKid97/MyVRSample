@@ -2,20 +2,17 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-namespace MyVRSamlple
+namespace MyVrSample
 {
     /// <summary>
-    ///  ÃÑ¾Ë ¹ß»ç
+    /// ±ÇÃÑ ÃÑ¾Ë ¹ß»ç
     /// </summary>
     public class FireBulletOnActivate : MonoBehaviour
     {
-        #region
-
+        #region Variables
         public GameObject bulletPrefab;
         public Transform firePoint;
         public float bulletSpeed = 20f;
-
-
         #endregion
 
         private void Start()
@@ -26,15 +23,9 @@ namespace MyVRSamlple
 
         void Fire(ActivateEventArgs args)
         {
-            GameObject bulletGo = Instantiate(bulletPrefab,firePoint.position,firePoint.rotation);
+            GameObject bulletGo = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bulletGo.GetComponent<Rigidbody>().linearVelocity = firePoint.forward * bulletSpeed;
-            Destroy(bulletGo,5f);
+            Destroy(bulletGo, 5f);
         }
-
-
-
-
-
-
     }
 }
