@@ -6,17 +6,18 @@ using UnityEngine;
 
 namespace MyFps
 {
-    public class BFirstTrigger : MonoBehaviour
+    public class BFirstTrigger : WorldMenu
     {
         #region Variables
         //    public GameObject thePlayer;
+
 
         public GameObject Locomotion;
 
         public GameObject theArrow;
 
         //sequence UI
-        public TextMeshProUGUI textBox;
+        //public TextMeshProUGUI textBox;
         [SerializeField]
         private string sequence = "Looks like a weapon on that table";
 
@@ -36,8 +37,9 @@ namespace MyFps
             Locomotion.SetActive(false);
 
             //대사 출력: "Looks like a weapon on that table.", 음성 출력
-            textBox.gameObject.SetActive(true);
-            textBox.text = sequence;
+            //WorldMenuUI.SetActive(true);
+            //textBox.text = sequence;
+            ShowMenuUI(sequence);
             line03.Play();
 
             //1초 딜레이
@@ -50,8 +52,10 @@ namespace MyFps
             yield return new WaitForSeconds(1f);
 
             //초기화
-            textBox.text = "";
-            textBox.gameObject.SetActive(false);
+            //textBox.text = "";
+            //WorldMenuUI.SetActive(false);
+
+            HideMenuUI();
 
             //플레이 캐릭터 활성화(다시 플레이)
             //    thePlayer.GetComponent<FirstPersonController>().enabled = true;

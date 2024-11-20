@@ -86,7 +86,11 @@ namespace MyFps
             }
 
             //다음씬 로드
+            if(sceneNumber >= 0)
+            {
             SceneManager.LoadScene(sceneNumber);
+
+            }
         }
 
     }
